@@ -1,6 +1,6 @@
 # wpnops.fluent-bit
 
-[![Build Status](https://github.com/josesolis2201/ansible-role-fluent-bit/workflows/CI/badge.svg)](https://github.com/josesolis2201/ansible-role-fluent-bit/actions)
+[![Build Status](https://github.com/wpnops/ansible-role-fluent-bit/workflows/CI/badge.svg)](https://github.com/wpnops/ansible-role-fluent-bit/actions)
 [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-ansible-role-fluent-bit.vim-blue.svg)](https://galaxy.ansible.com/wpninfra/fluent-bit/)
 
 An [ansible role](https://galaxy.ansible.com/wpninfra/fluent-bit) to install and configure fluent-bit
