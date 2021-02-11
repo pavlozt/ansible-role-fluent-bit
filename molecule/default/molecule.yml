@@ -15,6 +15,11 @@ platforms:
     cap_add: ['SYS_ADMIN', 'SETPCAP']
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  - name: fluentbit_centos7_instance
+    image: geerlingguy/docker-centos7-ansible
+    privileged: true
+    command: '/sbin/init'
+    cap_add: ['SYS_ADMIN', 'SETPCAP']
 provisioner:
   name: ansible
 verifier:

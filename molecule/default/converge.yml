@@ -11,6 +11,7 @@
     - name: Install gpg agent
       apt:
         name: gpg-agent
+      when: (ansible_os_family | lower) == 'debian'
 
   roles:
     - role: ansible-role-fluent-bit
