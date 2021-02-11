@@ -26,6 +26,7 @@ Please make sure your environment has [docker](https://www.docker.com) installed
 Role is tested against the following distributions (docker images):
 
   * Ubuntu Focal
+  * Centos 7
 
 You can test the role directly from sources using command ` molecule test `
 
