@@ -1,4 +1,4 @@
-# wpninfra.fluent-bit
+# wpnops.fluent-bit
 
 [![Build Status](https://github.com/josesolis2201/ansible-role-fluent-bit/workflows/CI/badge.svg)](https://github.com/josesolis2201/ansible-role-fluent-bit/actions)
 [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-ansible-role-fluent-bit.vim-blue.svg)](https://galaxy.ansible.com/wpninfra/fluent-bit/)
@@ -17,8 +17,7 @@ By default this role does not depend on any external roles. If any such dependen
 
 - hosts: servers
   roles:
-     - role: wpninfra.fluent-bit
-       fluent_bit_package_state: latest
+     - role: wpnops.fluent-bit
 
 ## Testing
 
@@ -27,10 +26,6 @@ Please make sure your environment has [docker](https://www.docker.com) installed
 Role is tested against the following distributions (docker images):
 
   * Ubuntu Focal
-  * Ubuntu Bionic
-  * Ubuntu Xenial
-  * CentOS 7
-  * Debian Buster
 
 You can test the role directly from sources using command ` molecule test `
 
