@@ -1,0 +1,26 @@
+---
+
+- name: Configure | td-agent-bit main conf
+  template:
+    src: td-agent-bit.conf.j2
+    dest: /etc/td-agent-bit/td-agent-bit.conf
+    mode: 0644
+  notify: Restart fluentbit service
+
+- name: Configure | td-agent-bit additional conf
+  template:
+    src: '{{ item.template }}'
+    dest: '/etc/td-agent-bit/{{ item.name }}'
+    mode: 0644
+  with_items: '{{ fluentbit_additional_conf_files }}'
+  when: fluentbit_additional_conf_files | lenght >0
+  notify: Restart fluenbit service
+
+- name: Configure | Source additional td-agent-bit parsers conf
+  template:
+    src: '{{ item.template }}'
+    dest: '/etc/td-agent-bit/{{ item.name }}'
+    mode: 0644
+  with_items: '{{ fluentbit_service_custom_parsers_files }}'
+  when: fluentbit_service_custom_parsers_files | length >0
+  notify: Restart fluentbit service

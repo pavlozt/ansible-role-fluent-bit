@@ -1,0 +1,16 @@
+---
+- name: Converge
+  hosts: all
+  become: true
+
+  pre_tasks:
+    - name: Update apt cache.
+      apt:
+        update_cache: yes
+      when: (ansible_os_family | lower) == 'debian'
+    - name: Install gpg agent
+      apt:
+        name: gpg-agent
+
+  roles:
+    - role: ansible-role-fluent-bit
