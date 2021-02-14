@@ -14,7 +14,7 @@
     mode: 0644
   with_items: '{{ fluentbit_additional_conf_files }}'
   when: fluentbit_additional_conf_files | length >0
-  notify: Restart fluenbit service
+  notify: Restart fluentbit service
 
 - name: Configure | Source additional td-agent-bit parsers conf
   template:
