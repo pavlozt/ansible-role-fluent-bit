@@ -15,7 +15,7 @@ fluentbit_inputs:
 fluentbit_outputs:
   - name: file
     match: "*"
-    path: "/tmp/fbitoutput.txt"
+    path: "/tmp/"
 
 fluentbit_additional_conf_files: []
 
