@@ -13,7 +13,7 @@
     dest: '/etc/td-agent-bit/{{ item.name }}'
     mode: 0644
   with_items: '{{ fluentbit_additional_conf_files }}'
-  when: fluentbit_additional_conf_files | lenght >0
+  when: fluentbit_additional_conf_files | length >0
   notify: Restart fluenbit service
 
 - name: Configure | Source additional td-agent-bit parsers conf
