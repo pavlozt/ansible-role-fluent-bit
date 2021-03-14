@@ -3,10 +3,6 @@ dependency:
   name: galaxy
 driver:
   name: docker
-lint: |
-  set -e
-  yamllint .
-  ansible-lint .
 platforms:
   - name: fluentbit_ubuntu_instance_2004
     image: geerlingguy/docker-ubuntu2004-ansible
