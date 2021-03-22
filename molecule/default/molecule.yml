@@ -3,6 +3,9 @@ dependency:
   name: galaxy
 driver:
   name: docker
+lint: |
+  set -e
+  yamllint .
 platforms:
   - name: fluentbit_ubuntu_instance_2004
     image: geerlingguy/docker-ubuntu2004-ansible
@@ -18,5 +21,9 @@ platforms:
     cap_add: ['SYS_ADMIN', 'SETPCAP']
 provisioner:
   name: ansible
+  lint:
+    name: ansible-lint
 verifier:
   name: testinfra
+  lint:
+    name: flake8
