@@ -1,7 +1,6 @@
 ---
 galaxy_info:
   role_name: fluent-bit
-  namespace: wpninfra
   author: Jose Solis
   description: An Ansible role to install and configure fluent-bit
   license: MIT
