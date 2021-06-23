@@ -1,22 +1,18 @@
 ---
 
-fluentbit_service_flush_seconds: 5
-fluentbit_service_daemon: false
-fluentbit_service_custom_parsers_files: []
-fluentbit_service_log_level: info
-fluentbit_service_enable_metrics: false
-fluentbit_service_metrics_listen_ip: 0.0.0.0
-fluentbit_service_metrics_listen_port: 2020
-
-fluentbit_inputs:
-  - name: tail
-    path: "/var/log/syslog"
-
-fluentbit_outputs:
-  - name: file
-    match: "*"
-    path: "/tmp/"
-
-fluentbit_additional_conf_files: []
+fluentbit_service:
+  flush_seconds: 5
+  daemon: false
+  log_level: info
+  ## optional
+  # log_file: ""
+  custom_parsers_files: []
+  custom_plugins_files: []
+  ## optional
+  # streams_file: ""
+  http_server:
+    state: false
+    listen_ip: 0.0.0.0
+    listen_port: 2020
 
 fluentbit_apt_repo: 'deb https://packages.fluentbit.io/ubuntu/focal focal main'
