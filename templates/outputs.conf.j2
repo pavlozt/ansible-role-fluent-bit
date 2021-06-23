@@ -1,0 +1,13 @@
+{% if fluentbit_outputs is defined %}
+{% for output in fluentbit_outputs %}
+[OUTPUT]
+{% for key in output %}
+    {{ key }} {{ output[key] }}
+{% endfor %}
+{% endfor %}
+{% else %}
+[OUTPUT]
+    Name file
+    Match cpu_default
+    Path /dev/null
+{% endif %}
