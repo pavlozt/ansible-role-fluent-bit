@@ -5,22 +5,32 @@
     src: td-agent-bit.conf.j2
     dest: /etc/td-agent-bit/td-agent-bit.conf
     mode: 0644
+
+- name: Configure | td-agent-bit inputs
+  template:
+    src: 'inputs.conf.j2'
+    dest: '/etc/td-agent-bit/inputs.conf'
+    mode: 0644
+
+- name: Configure | td-agent-bit outputs
+  template:
+    src: 'outputs.conf.j2'
+    dest: '/etc/td-agent-bit/outputs.conf'
+    mode: 0644
   notify: Restart fluentbit service
 
-- name: Configure | td-agent-bit additional conf
+- name: Configure | td-agent-bit filters
   template:
-    src: '{{ item.template }}'
-    dest: '/etc/td-agent-bit/{{ item.name }}'
+    src: 'filters.conf.j2'
+    dest: '/etc/td-agent-bit/filters.conf'
     mode: 0644
-  with_items: '{{ fluentbit_additional_conf_files }}'
-  when: fluentbit_additional_conf_files | length >0
+  when: fluentbit_filters is defined
   notify: Restart fluentbit service
 
-- name: Configure | Source additional td-agent-bit parsers conf
+- name: Configure | td-agent-bit custom parsers
   template:
-    src: '{{ item.template }}'
-    dest: '/etc/td-agent-bit/{{ item.name }}'
+    src: 'parsers.conf.j2'
+    dest: '/etc/td-agent-bit/parsers.conf'
     mode: 0644
-  with_items: '{{ fluentbit_service_custom_parsers_files }}'
-  when: fluentbit_service_custom_parsers_files | length >0
+  when: fluentbit_custom_parsers is defined
   notify: Restart fluentbit service

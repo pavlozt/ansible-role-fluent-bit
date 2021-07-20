@@ -1,6 +1,6 @@
 ---
 
-- name: Install Redhat | Add yum repository
+- name: Install Redhat | Add yum repository for Centos 7
   yum_repository:
     name: TD_Agent_Bit
     baseurl: http://packages.fluentbit.io/centos/7/$basearch/
