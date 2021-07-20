@@ -1,6 +1,6 @@
 ---
 
-fluentbit_service:
+fluentbit_svc:
   flush_seconds: 5
   daemon: false
   log_level: info
@@ -16,13 +16,8 @@ fluentbit_service:
     listen_port: 2020
 
 fluentbit_filters: []
-fluentbit_inputs:
-  - name: cpu
-    tag: cpu_default
-fluentbit_outputs:
-  - name: file
-    match: cpu_default
-    path: /dev/null
+fluentbit_inputs: []
+fluentbit_outputs: []
 fluentbit_parsers: []
 
 

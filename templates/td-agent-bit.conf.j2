@@ -2,34 +2,34 @@
 
 [SERVICE]
 
-    Flush {{ fluentbit_service.flush_seconds }}
+    Flush {{ fluentbit_svc.flush_seconds }}
 
-    Daemon {{ (fluentbit_service.daemon | bool) | ternary('On', 'Off' ) }}
+    Daemon {{ (fluentbit_svc.daemon | bool) | ternary('On', 'Off' ) }}
 
-    Log_Level {{ fluentbit_service.log_level }}
+    Log_Level {{ fluentbit_svc.log_level }}
 
-{% if fluentbit_service.log_file is defined %}
-    Log_File {{  fluentbit_service.log_file }}
+{% if fluentbit_svc.log_file is defined %}
+    Log_File {{  fluentbit_svc.log_file }}
 {% endif %}
 
     Parsers_File parsers.conf
-{% for parsers_file in fluentbit_service.custom_parsers_files %}
+{% for parsers_file in fluentbit_svc.custom_parsers_files %}
     Parsers_File {{ parsers_file.name }}
 {% endfor %}
 
     Plugins_File plugins.conf
-{% for plugins_file in fluentbit_service.custom_plugins_files %}
+{% for plugins_file in fluentbit_svc.custom_plugins_files %}
     Pluins_File {{ plugins_file.name }}
 {% endfor %}
 
-{% if fluentbit_service.streams_file is defined %}
-    Streams_file {{ fluentbit_service.streams_file }}
+{% if fluentbit_svc.streams_file is defined %}
+    Streams_file {{ fluentbit_svc.streams_file }}
 {% endif %}
 
-{% if fluentbit_service.http_server.state %}
-    HTTP_Server {{ (fluentbit_service.http_server.state | bool) | ternary('On', 'Off' ) }}
-    HTTP_Listen { fluentbit_service.http_server.listen_ip }}
-    HTTP_Port {{ fluentbit_service.http_server.listen_port }}
+{% if fluentbit_svc.http_server.state %}
+    HTTP_Server {{ (fluentbit_svc.http_server.state | bool) | ternary('On', 'Off' ) }}
+    HTTP_Listen { fluentbit_svc.http_server.listen_ip }}
+    HTTP_Port {{ fluentbit_svc.http_server.listen_port }}
 {% endif %}
 
 @INCLUDE inputs.conf
