@@ -2,7 +2,7 @@
 {% for filter in fluentbit_filters %}
 [FILTER]
 {% for key in filter %}
-    {{ key }} {{ filter[key] }}
+    {{ key | regex_replace ('^[0-9]+__', '') }} {{ filter[key] }}
 {% endfor %}
 {% endfor %}
 {% endif %}

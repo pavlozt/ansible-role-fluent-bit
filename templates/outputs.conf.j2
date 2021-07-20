@@ -2,7 +2,7 @@
 {% for output in fluentbit_outputs %}
 [OUTPUT]
 {% for key in output %}
-    {{ key }} {{ output[key] }}
+    {{ key | regex_replace ('^[0-9]+__', '') }} {{ output[key] }}
 {% endfor %}
 {% endfor %}
 {% else %}
