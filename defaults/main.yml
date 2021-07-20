@@ -26,4 +26,5 @@ fluentbit_outputs:
 fluentbit_parsers: []
 
 
-fluentbit_apt_repo: 'deb https://packages.fluentbit.io/ubuntu/focal focal main'
+fluentbit_apt_repo_focal: 'deb https://packages.fluentbit.io/ubuntu/focal focal main'
+fluentbit_apt_repo_bionic: 'deb https://packages.fluentbit.io/ubuntu/bionic bionic main'
