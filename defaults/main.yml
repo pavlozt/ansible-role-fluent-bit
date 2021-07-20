@@ -15,10 +15,10 @@ fluentbit_svc:
     listen_ip: 0.0.0.0
     listen_port: 2020
 
-fluentbit_filters: []
-fluentbit_inputs: []
-fluentbit_outputs: []
-fluentbit_parsers: []
+# fluentbit_filters: []
+# fluentbit_inputs: []
+# fluentbit_outputs: []
+# fluentbit_parsers: []
 
 
 fluentbit_apt_repo_focal: 'deb https://packages.fluentbit.io/ubuntu/focal focal main'
