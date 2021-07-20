@@ -15,4 +15,15 @@ fluentbit_service:
     listen_ip: 0.0.0.0
     listen_port: 2020
 
+fluentbit_filters: []
+fluentbit_inputs:
+  - name: cpu
+    tag: cpu_default
+fluentbit_outputs:
+  - name: file
+    match: cpu_default
+    path: /dev/null
+fluentbit_parsers: []
+
+
 fluentbit_apt_repo: 'deb https://packages.fluentbit.io/ubuntu/focal focal main'
