@@ -23,6 +23,9 @@ jobs:
         image:
           - geerlingguy/docker-ubuntu2004-ansible:latest
           - geerlingguy/docker-centos7-ansible:latest
+          - geerlingguy/docker-ubuntu1804-ansible:latest
+          - geerlingguy/docker-rockylinux8-ansible:latest
+          - geerlingguy/docker-centos8-ansible:latest
     steps:
       - name: Check out the codebase.
         uses: actions/checkout@v2
