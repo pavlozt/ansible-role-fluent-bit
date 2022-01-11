@@ -19,7 +19,7 @@
 
     Plugins_File plugins.conf
 {% for plugins_file in fluentbit_svc.custom_plugins_files %}
-    Pluins_File {{ plugins_file.name }}
+    Plugins_File {{ plugins_file.name }}
 {% endfor %}
 
 {% if fluentbit_svc.streams_file is defined %}
