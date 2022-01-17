@@ -37,6 +37,3 @@
 {% if fluentbit_filters is defined %}
 @INCLUDE filters.conf
 {% endif %}
-{% if fluentbit_custom_parsers is defined %}
-@INCLUDE parsers.conf
-{% endif %}
