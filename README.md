@@ -21,7 +21,7 @@ Please refer to [fluentbit's documentation](https://docs.fluentbit.io/manual/) f
 | fluentbit_filters                 | Dictionary with fluentbit filters                                                                                     | no       |         |
 | fluentbit_inputs                  | Dictionary with fluentbit inputs                                                                                      | no       |         |
 | fluentbit_outputs                 | Dictionary with fluentbit outputs                                                                                     | no       |         |
-| fluentbit_parsers                 | Dictionary with fluentbit custom written parsers                                                                      | no       |         |
+| fluentbit_custom_parsers          | Dictionary with fluentbit custom written parsers                                                                      | no       |         |
 
 **IF NO INPUTS OR OUTPUTS ARE DEFINED FLUENTBIT WILL INITIALIZE WITH THE FOLLOWING LOGGING STRUCTURE**
 ```
