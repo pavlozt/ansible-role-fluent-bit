@@ -28,7 +28,7 @@
 
 {% if fluentbit_svc.http_server.state %}
     HTTP_Server {{ (fluentbit_svc.http_server.state | bool) | ternary('On', 'Off' ) }}
-    HTTP_Listen { fluentbit_svc.http_server.listen_ip }}
+    HTTP_Listen {{ fluentbit_svc.http_server.listen_ip }}
     HTTP_Port {{ fluentbit_svc.http_server.listen_port }}
 {% endif %}
 
