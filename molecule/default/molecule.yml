@@ -42,6 +42,13 @@ platforms:
     cap_add: ['SYS_ADMIN', 'SETPCAP']
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  - name: fluentbit_amazonlinux2_instance
+    image: geerlingguy/docker-amazonlinux2-ansible
+    privileged: true
+    command: '/sbin/init'
+    cap_add: ['SYS_ADMIN', 'SETPCAP']
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
 provisioner:
   name: ansible
   lint:
