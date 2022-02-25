@@ -1,7 +1,7 @@
 ---
 
 - name: Install Redhat | Add yum repository for Centos 7
-  when: ansible_facts['distribution'] != "Amazon"
+  when: ansible_facts['ansible_distribution'] != "Amazon"
   yum_repository:
     name: TD_Agent_Bit
     baseurl: http://packages.fluentbit.io/centos/7/$basearch/
@@ -11,7 +11,7 @@
     enabled: true
 
 - name: Install Redhat | Add yum repository for AmazonLinux2
-  when: ansible_facts['distribution'] == "Amazon"
+  when: ansible_facts['ansible_distribution'] == "Amazon"
   yum_repository:
     name: TD_Agent_Bit
     baseurl: https://packages.fluentbit.io/amazonlinux/2/$basearch/
