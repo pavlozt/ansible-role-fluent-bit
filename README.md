@@ -84,6 +84,7 @@ Role is tested against the following distributions (docker images):
   * Centos 7
   * Centos 8
   * Rocky Linux 8
+  * AmazonLinux 2
 
 You can test the role directly from sources using command ` molecule test `
 
