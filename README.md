@@ -45,7 +45,7 @@ fluentbit_outputs:
     match: cpu_default
     path: /dev/null
 ```
-**IN CASE IT IS REQUIRED TO HAVE TOW KEYS WITH THE SAME NAME IN A CONFIGURATION DICTIONARY IT CAN BE SPECIFIED USING THE FOLLOWING FORMAT**
+**IN CASE IT IS REQUIRED TO HAVE TWO KEYS WITH THE SAME NAME IN A CONFIGURATION DICTIONARY IT CAN BE SPECIFIED USING THE FOLLOWING FORMAT**
 <br>
 For example:
 ```
@@ -79,8 +79,8 @@ Please make sure your environment has [docker](https://www.docker.com) installed
 
 Role is tested against the following distributions (docker images):
 
-  * Ubuntu Bionic
-  * Ubuntu Focal
+  * Ubuntu Bionic (18.04)
+  * Ubuntu Focal (20.04)
   * Centos 7
   * Centos 8
   * Rocky Linux 8
