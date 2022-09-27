@@ -15,8 +15,8 @@ Please refer to [fluentbit's documentation](https://docs.fluentbit.io/manual/) f
 | fluentbit_svc.daemon              | Boolean value to set if Fluent Bit should run as a Daemon (background) or not.                                        | yes      | false   |
 | fluentbit_svc.log_level           | Set the logging verbosity level. Allowed values are: error, warn, info, debug and trace.                              | yes      | info    |
 | fluentbit_svc.log_file            | Absolute path for an optional log file.  By default all logs are redirected to the standard error interface (stderr). | no       |         |
-| fluentbit_svc.custom_parsers_file | Path for a parsers configuration file                                                                                 | no       |         |
-| fluentbit_svc.custom_plugins_file | Path for a plugins configuration file                                                                                 | no       |         |
+| fluentbit_svc.custom_parsers_files| Array of parsers configuration files                                                                                  | no       |         |
+| fluentbit_svc.custom_plugins_files| Array of plugins configuration files                                                                                  | no       |         |
 | fluentbit_svc.streams_file        | Path for the Stream Processor configuration file.                                                                     | no       |         |
 | fluentbit_filters                 | Dictionary with fluentbit filters                                                                                     | no       |         |
 | fluentbit_inputs                  | Dictionary with fluentbit inputs                                                                                      | no       |         |
