@@ -69,9 +69,11 @@ By default this role does not depend on any external roles. If any such dependen
 
 ## Example Playbook
 
+```yaml
 - hosts: servers
   roles:
      - role: wpninfra.fluent-bit
+```
 
 ## Testing
 
