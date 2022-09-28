@@ -63,6 +63,15 @@ Will result in:
   record hostname ${HOSTNAME}
   record product something
 ```
+## Tags
+
+To speed up repeated deployments of the playbook, the following Ansible tags are supported to limit which tasks are run:
+
+ - install
+ - configure
+
+If you just need to update the config files, use `--tag configure` to speed up the update.
+
 ## Dependencies
 
 By default this role does not depend on any external roles. If any such dependency is required please [add them](/meta/main.yml) according to [the documentation](http://docs.ansible.com/ansible/playbooks_roles.html#role-dependencies)
