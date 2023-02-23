@@ -1,6 +1,6 @@
 ---
 - name: Install dependencies
-  apt:
+  ansible.builtin.apt:
     pkg:
       - apt-transport-https
       - lsb-release
@@ -8,13 +8,13 @@
       - gpg
 
 - name: Install on Debian | Add fluent-bit apt-key
-  apt_key:
+  ansible.builtin.apt_key:
     id: C3C0A28534B9293EAF51FABD9F9DDC083888C1CD
     url: https://packages.fluentbit.io/fluentbit.key
     keyring: /etc/apt/trusted.gpg.d/fluentbit.gpg
 
 - name: Install on Debian | Add fluent-bit repository
-  apt_repository:
+  ansible.builtin.apt_repository:
     # TODO: signed and pinned key
     repo: "deb https://packages.fluentbit.io/debian/{{ ansible_distribution_release }} {{ ansible_distribution_release }} main"
     state: present

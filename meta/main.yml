@@ -5,7 +5,7 @@ galaxy_info:
   author: Jose Solis
   description: An Ansible role to install and configure fluent-bit
   license: MIT
-  min_ansible_version: 2.2
+  min_ansible_version: '2.2'
   platforms:
     - name: Ubuntu
       versions:
@@ -13,16 +13,16 @@ galaxy_info:
         - focal
     - name: EL
       versions:
-        - 7
-        - 8
+        - '7'
+        - '8'
     - name: Debian
       versions:
-        - 9
-        - 10
-        - 11
+        - 'buster'
+        - 'bullseye'
+        - 'bookworm'
   galaxy_tags:
     - fluentbit
     - fluent
     - logcollector
 
-  dependencies: []
+dependencies: []

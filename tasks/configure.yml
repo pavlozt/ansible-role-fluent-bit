@@ -1,26 +1,26 @@
 ---
 
 - name: Configure | fluent-bit main conf
-  template:
+  ansible.builtin.template:
     src: fluent-bit.conf.j2
     dest: /etc/fluent-bit/fluent-bit.conf
     mode: 0644
 
 - name: Configure | fluent-bit inputs
-  template:
+  ansible.builtin.template:
     src: 'inputs.conf.j2'
     dest: '/etc/fluent-bit/inputs.conf'
     mode: 0644
 
 - name: Configure | fluent-bit outputs
-  template:
+  ansible.builtin.template:
     src: 'outputs.conf.j2'
     dest: '/etc/fluent-bit/outputs.conf'
     mode: 0644
   notify: Restart fluentbit service
 
 - name: Configure | fluent-bit filters
-  template:
+  ansible.builtin.template:
     src: 'filters.conf.j2'
     dest: '/etc/fluent-bit/filters.conf'
     mode: 0644
@@ -28,7 +28,7 @@
   notify: Restart fluentbit service
 
 - name: Configure | fluent-bit custom parsers
-  template:
+  ansible.builtin.template:
     src: 'parsers.conf.j2'
     dest: '/etc/fluent-bit/parsers.conf'
     mode: 0644
