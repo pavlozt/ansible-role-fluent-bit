@@ -1,22 +1,23 @@
 ---
+- name: Install dependencies
+  apt:
+    pkg:
+      - apt-transport-https
+      - lsb-release
+      - ca-certificates
+      - gpg
 
-- name: Install Debian | Add td-agent-bit apt-key
+- name: Install on Debian | Add fluent-bit apt-key
   apt_key:
+    id: C3C0A28534B9293EAF51FABD9F9DDC083888C1CD
     url: https://packages.fluentbit.io/fluentbit.key
-    state: present
+    keyring: /etc/apt/trusted.gpg.d/fluentbit.gpg
 
-- name: Install Debian | Add td-agent-bit repository for focal
+- name: Install on Debian | Add fluent-bit repository
   apt_repository:
-    repo: '{{ fluentbit_apt_repo_focal }}'
+    # TODO: signed and pinned key
+    repo: "deb https://packages.fluentbit.io/debian/{{ ansible_distribution_release }} {{ ansible_distribution_release }} main"
     state: present
-    filename: td-agent-bit
+    filename: fluent-bit
     update_cache: true
-  when: ansible_facts['distribution_major_version'] == "20"
-
-- name: Install Debian | Add td-agent-bit repository for bionic
-  apt_repository:
-    repo: '{{ fluentbit_apt_repo_bionic }}'
-    state: present
-    filename: td-agent-bit
-    update_cache: true
-  when: ansible_facts['distribution_major_version'] == "18"
+  when: ansible_distribution  == 'Debian'

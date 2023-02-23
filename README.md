@@ -22,6 +22,7 @@ Please refer to [fluentbit's documentation](https://docs.fluentbit.io/manual/) f
 | fluentbit_inputs                  | Dictionary with fluentbit inputs                                                                                      | no       |         |
 | fluentbit_outputs                 | Dictionary with fluentbit outputs                                                                                     | no       |         |
 | fluentbit_custom_parsers          | Dictionary with fluentbit custom written parsers                                                                      | no       |         |
+| fluentbit_version                 | Package version                                                                                   | no       |  latest       |
 
 **IF NO INPUTS OR OUTPUTS ARE DEFINED FLUENTBIT WILL INITIALIZE WITH THE FOLLOWING LOGGING STRUCTURE**
 ```
@@ -92,6 +93,7 @@ Role is tested against the following distributions (docker images):
 
   * Ubuntu Bionic (18.04)
   * Ubuntu Focal (20.04)
+  * Debian (9 to 11)
   * Centos 7
   * Centos 8
   * Rocky Linux 8

@@ -5,7 +5,7 @@
 
 - name: Install fluentbit package
   package:
-    name: td-agent-bit
+    name: "{{ fluentbit_package_name }}"
     state: present
     update_cache: true
   notify: Restart fluentbit service

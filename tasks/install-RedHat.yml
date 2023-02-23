@@ -1,19 +1,19 @@
 ---
 
-- name: Install Redhat | Add yum repository for Centos 7
+- name: Install on Redhat | Add yum repository for Centos 7
   when: ansible_facts['ansible_distribution'] != "Amazon"
   yum_repository:
-    name: TD_Agent_Bit
+    name: fluent_bit
     baseurl: http://packages.fluentbit.io/centos/7/$basearch/
     gpgcheck: true
     gpgkey: https://packages.fluentbit.io/fluentbit.key
     description: Fluent bit repo
     enabled: true
 
-- name: Install Redhat | Add yum repository for AmazonLinux2
+- name: Install on Redhat | Add yum repository for AmazonLinux2
   when: ansible_facts['ansible_distribution'] == "Amazon"
   yum_repository:
-    name: TD_Agent_Bit
+    name: fluent_bit
     baseurl: https://packages.fluentbit.io/amazonlinux/2/$basearch/
     gpgcheck: true
     gpgkey: https://packages.fluentbit.io/fluentbit.key

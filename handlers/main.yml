@@ -2,7 +2,7 @@
 
 - name: Restart fluentbit service
   service:
-    name: td-agent-bit
+    name: fluent-bit
     enabled: true
     state: restarted
   become: true

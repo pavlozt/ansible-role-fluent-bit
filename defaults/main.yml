@@ -15,11 +15,9 @@ fluentbit_svc:
     listen_ip: 0.0.0.0
     listen_port: 2020
 
+fluentbit_version: latest
+
 # fluentbit_filters: []
 # fluentbit_inputs: []
 # fluentbit_outputs: []
 # fluentbit_parsers: []
-
-
-fluentbit_apt_repo_focal: 'deb https://packages.fluentbit.io/ubuntu/focal focal main'
-fluentbit_apt_repo_bionic: 'deb https://packages.fluentbit.io/ubuntu/bionic bionic main'
