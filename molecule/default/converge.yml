@@ -1,17 +1,8 @@
 ---
 - name: Converge
   hosts: all
-  become: true
-
-  pre_tasks:
-    - name: Update apt cache.
-      apt:
-        update_cache: yes
-      when: (ansible_os_family | lower) == 'debian'
-    - name: Install gpg agent
-      apt:
-        name: gpg-agent
-      when: (ansible_os_family | lower) == 'debian'
-
-  roles:
-    - role: ansible-role-fluent-bit
+  gather_facts: true
+  tasks:
+    - name: "Include wpnops.fluent_bit"
+      ansible.builtin.include_role:
+        name: "wpnops.fluent_bit"
