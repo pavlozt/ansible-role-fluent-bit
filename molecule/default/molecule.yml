@@ -6,15 +6,20 @@ driver:
 lint: |
   set -e
   yamllint .
-
+# TODO  - on
 #  ansible-lint -v
 platforms:
-  - name: fluentbit_ubuntu_instance_2004
-    image: geerlingguy/docker-ubuntu2004-ansible
-    privileged: true
-    cap_add: ['SYS_ADMIN', 'SETPCAP', 'BPF']
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  # - name: fluentbit_ubuntu_instance_2004
+  #   image: geerlingguy/docker-ubuntu2004-ansible
+  #   privileged: true
+  #   cap_add: ['SYS_ADMIN', 'SETPCAP', 'BPF']
+  #   #cap_add: ['ALL', 'SETPCAP', 'BPF']
+  #   volumes:
+  #     - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  #   tmpfs:
+  #     - /run
+  #     - /tmp
+
   # - name: fluentbit_ubuntu_instance_1804
   #   image: geerlingguy/docker-ubuntu1804-ansible
   #   privileged: true
@@ -56,16 +61,17 @@ platforms:
   #   cap_add: ['SYS_ADMIN', 'SETPCAP','BPF']
   #   volumes:
   #     - /sys/fs/cgroup:/sys/fs/cgroup:ro
-  # - name: fluentbit_debian_instance_11
-  #   image: geerlingguy/docker-debian11-ansible
-  #   privileged: true
-  #   cap_add: ['SYS_ADMIN', 'SETPCAP','BPF']
-  #   volumes:
-  #     - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  - name: fluentbit_debian_instance_11
+    image: geerlingguy/docker-debian11-ansible
+    privileged: true
+    cap_add: ['SYS_ADMIN', 'SETPCAP', 'BPF']
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
 
 provisioner:
   name: ansible
-  lint:
-    name: ansible-lint
 verifier:
   name: testinfra
+  options:
+    connection: docker
+    v: 2
