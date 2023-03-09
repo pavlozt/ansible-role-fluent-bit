@@ -6,54 +6,104 @@ driver:
 lint: |
   set -e
   yamllint .
+  ansible-lint -v
 platforms:
-  - name: fluentbit_ubuntu_instance_2004
-    image: geerlingguy/docker-ubuntu2004-ansible
-    privileged: true
-    command: '/sbin/init'
-    cap_add: ['SYS_ADMIN', 'SETPCAP']
+  # No more tests on old centos7 and amazon linux 2 due cgroups issues https://github.com/geerlingguy/docker-centos7-ansible/issues/22
+  #
+  # - name: fluentbit_centos7_instance
+  #   image: geerlingguy/docker-centos7-ansible:latest
+  #   command: ${MOLECULE_DOCKER_COMMAND:-""}
+  #   volumes:
+  #     - /sys/fs/cgroup:/sys/fs/cgroup:rw
+  #   tmpfs:
+  #     - /run
+  #     - /tmp
+  #   privileged: true
+  #   capabilities:
+  #     - SYS_ADMIN
+  #     - SETPCAP
+  #   pre_build_image: true
+  #   cgroupns_mode: host
+
+  - name: fluentbit_debian11_instance
+    image: geerlingguy/docker-debian11-ansible:latest
+    command: ${MOLECULE_DOCKER_COMMAND:-""}
     volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-  - name: fluentbit_ubuntu_instance_1804
-    image: geerlingguy/docker-ubuntu1804-ansible
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+    tmpfs:
+      - /run
+      - /tmp
     privileged: true
-    command: '/sbin/init'
-    cap_add: ['SYS_ADMIN', 'SETPCAP']
+    capabilities:
+      - SYS_ADMIN
+      - SETPCAP
+    pre_build_image: true
+    cgroupns_mode: host
+
+  - name: fluentbit_centos8_instance
+    image: geerlingguy/docker-centos8-ansible:latest
+    command: ${MOLECULE_DOCKER_COMMAND:-""}
     volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-  - name: fluentbit_centos7_instance
-    image: geerlingguy/docker-centos7-ansible
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+    tmpfs:
+      - /run
+      - /tmp
     privileged: true
-    command: '/sbin/init'
-    cap_add: ['SYS_ADMIN', 'SETPCAP']
+    capabilities:
+      - SYS_ADMIN
+      - SETPCAP
+    pre_build_image: true
+    cgroupns_mode: host
+  - name: fluentbit_ubuntu_2004_instance
+    image: geerlingguy/docker-ubuntu2004-ansible:latest
+    command: ${MOLECULE_DOCKER_COMMAND:-""}
     volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+    tmpfs:
+      - /run
+      - /tmp
+    privileged: true
+    capabilities:
+      - SYS_ADMIN
+      - SETPCAP
+    pre_build_image: true
+    cgroupns_mode: host
+
+  - name: fluentbit_ubuntu_2204_instance
+    image: geerlingguy/docker-ubuntu2204-ansible:latest
+    command: ${MOLECULE_DOCKER_COMMAND:-""}
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+    tmpfs:
+      - /run
+      - /tmp
+    privileged: true
+    capabilities:
+      - SYS_ADMIN
+      - SETPCAP
+    pre_build_image: true
+    cgroupns_mode: host
+
+
   - name: fluentbit_rockylinux8_instance
     image: geerlingguy/docker-rockylinux8-ansible
-    privileged: true
-    command: '/sbin/init'
-    cap_add: ['SYS_ADMIN', 'SETPCAP']
+    command: /sbin/init
     volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-  - name: fluentbit_centos8_instance
-    image: geerlingguy/docker-centos8-ansible
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+    tmpfs:
+      - /run
+      - /tmp
     privileged: true
-    command: '/sbin/init'
-    cap_add: ['SYS_ADMIN', 'SETPCAP']
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-  - name: fluentbit_amazonlinux2_instance
-    image: geerlingguy/docker-amazonlinux2-ansible
-    privileged: true
-    command: '/sbin/init'
-    cap_add: ['SYS_ADMIN', 'SETPCAP']
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    capabilities:
+      - SYS_ADMIN
+      - SETPCAP
+    pre_build_image: true
+    cgroupns_mode: host
+
 provisioner:
   name: ansible
-  lint:
-    name: ansible-lint
 verifier:
   name: testinfra
-  lint:
-    name: flake8
+  options:
+    connection: docker
+    v: 2

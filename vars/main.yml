@@ -1,2 +1,2 @@
 ---
-fluentbit_package_name: "{{ (fluentbit_version == 'latest') | ternary('fluent-bit','fluent-bit' + '=' + fluentbit_version) }}"
+fluentbit_package_name: "{{ (fluentbit_version == 'latest') | ternary('fluent-bit', 'fluent-bit' + '=' + fluentbit_version) }}"

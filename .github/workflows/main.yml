@@ -6,6 +6,8 @@ on:
   push:
     branches:
       - master
+      - develop
+      - feat/*
   schedule:
     - cron: "0 5 * * 0"
 
@@ -21,7 +23,7 @@ jobs:
     strategy:
       matrix:
         image:
-          - geerlingguy/docker-ubuntu2004-ansible:latest
+          - geerlingguy/docker-ubuntu2204-ansible:latest
 
     steps:
       - name: Check out the codebase.
@@ -35,7 +37,7 @@ jobs:
           python-version: '3.x'
 
       - name: Install test dependencies.
-        run: pip3 install ansible molecule[docker] docker pytest pytest-testinfra ansible-lint
+        run: pip3 install ansible molecule[docker] pytest pytest-testinfra ansible-lint
 
       - name: Run Molecule tests.
         run: molecule test
