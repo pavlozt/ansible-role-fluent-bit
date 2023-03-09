@@ -7,17 +7,16 @@
       - ca-certificates
       - gpg
 
-- name: Install on Debian | Add fluent-bit apt-key
+- name: Install on Deb-like | Add fluent-bit apt-key
   ansible.builtin.apt_key:
     id: C3C0A28534B9293EAF51FABD9F9DDC083888C1CD
     url: https://packages.fluentbit.io/fluentbit.key
     keyring: /etc/apt/trusted.gpg.d/fluentbit.gpg
 
-- name: Install on Debian | Add fluent-bit repository
+- name: Install on Deb-like | Add fluent-bit repository
   ansible.builtin.apt_repository:
-    # TODO: signed and pinned key
-    repo: "deb https://packages.fluentbit.io/debian/{{ ansible_distribution_release }} {{ ansible_distribution_release }} main"
+    repo: "deb https://packages.fluentbit.io/{{  ansible_distribution | lower }}/{{ ansible_distribution_release }} {{ ansible_distribution_release }} main"
     state: present
     filename: fluent-bit
     update_cache: true
-  when: ansible_distribution  == 'Debian'
+  when: ansible_os_family  == 'Debian'

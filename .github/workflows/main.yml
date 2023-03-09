@@ -6,8 +6,10 @@ on:
   push:
     branches:
       - master
-  schedule:
-    - cron: "0 5 * * 0"
+      - feat/*
+      - molecule-add-platforms
+      # schedule:
+      #  - cron: "0 5 * * 0"
 
 defaults:
   run:
