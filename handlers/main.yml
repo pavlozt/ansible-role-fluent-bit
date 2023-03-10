@@ -2,7 +2,6 @@
 
 - name: Restart fluentbit service
   ansible.builtin.service:
-  #ansible.builtin.systemd:
     name: fluent-bit
     enabled: true
     state: restarted
