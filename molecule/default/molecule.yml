@@ -11,8 +11,8 @@ platforms:
   - name: fluentbit_centos7_instance
     image: geerlingguy/docker-centos7-ansible:latest
     command: /sbin/init
-    #command: ${MOLECULE_DOCKER_COMMAND:-""}
-    #volumes:
+    # command: ${MOLECULE_DOCKER_COMMAND:-""}
+    # volumes:
     #  - /sys/fs/cgroup:/sys/fs/cgroup:ro
     tmpfs:
       - /run
