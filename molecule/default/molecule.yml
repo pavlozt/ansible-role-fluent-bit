@@ -23,8 +23,7 @@ platforms:
       - SETPCAP
     pre_build_image: true
     env:
-      container: docker 
-    
+      container: docker
 
   - name: fluentbit_debian11_instance
     image: geerlingguy/docker-debian11-ansible:latest
