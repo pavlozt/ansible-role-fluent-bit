@@ -25,21 +25,6 @@ platforms:
   #   pre_build_image: true
   #   cgroupns_mode: host
 
-  - name: fluentbit_amazonlinux2022_instance
-    image: geerlingguy/docker-amazonlinux2022-ansible
-    command: ${MOLECULE_DOCKER_COMMAND:-""}
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:rw
-    tmpfs:
-      - /run
-      - /tmp
-    privileged: true
-    capabilities:
-      - SYS_ADMIN
-      - SETPCAP
-    pre_build_image: true
-    cgroupns_mode: host
-
   - name: fluentbit_debian11_instance
     image: geerlingguy/docker-debian11-ansible:latest
     command: ${MOLECULE_DOCKER_COMMAND:-""}
