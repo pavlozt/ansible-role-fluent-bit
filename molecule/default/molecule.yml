@@ -22,8 +22,8 @@ platforms:
       - SYS_ADMIN
       - SETPCAP
     pre_build_image: true
-    #environment:
-    #  - "container:docker"
+    env:
+      container: docker 
     
 
   - name: fluentbit_debian11_instance
